@@ -1,17 +1,11 @@
-let testMsg = '2 secondes après le start'
- 
-console.log('Avant le start')
-start()
-console.log('Après le start')
- 
-function getMsg() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(testMsg)
-        }, 2000)
-    })
-}
- 
-async function start() {
-    console.log(await getMsg())
-}
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
