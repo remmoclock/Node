@@ -34,7 +34,7 @@ MembersRouter.route("/:id")
     if (typeof index == "string") {
       res.json(index);
     } else {
-      res.json(success(members[index]));
+      res.json((members[index]));
     }
   })
 
@@ -103,7 +103,7 @@ MembersRouter.route("/")
       }
 
       if (sameName) {
-        res.json(error("name already taken"));
+        res.json(("name already taken"));
       } else {
         let member = {
           id: createID(),
