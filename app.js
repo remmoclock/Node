@@ -1,8 +1,10 @@
 const mysql = require("promise-mysql");
 const bodyParser = require("body-parser");
 const express = require("express");
-const morgan = require('morgan')('dev')
-const config = require('./assets/config')
+const morgan = require("morgan")("dev");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./assets/swagger.json");
+const config = require("./assets/config");
 const { checkAndChange } = require("./assets/functions");
 
 const db = mysql
@@ -23,6 +25,7 @@ const db = mysql
     app.use(morgan);
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(config.rootAPI + "api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
     MembersRouter.route("/:id")
 
