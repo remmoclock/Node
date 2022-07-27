@@ -86,7 +86,7 @@
                     {
                         "name": "name",
                         "in": "body",
-                        "required": true,
+                        "required": true
                     }
                 ],
                 "tags": [
