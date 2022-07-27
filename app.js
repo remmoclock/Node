@@ -1,7 +1,6 @@
 const mysql = require("promise-mysql");
 const bodyParser = require("body-parser");
 const express = require("express");
-const expressOasGenerator = require('express-oas-generator');
 const morgan = require('morgan')('dev')
 const config = require('./assets/config')
 const { checkAndChange } = require("./assets/functions");
@@ -17,7 +16,6 @@ const db = mysql
     console.log("Connected.");
 
     const app = express();
-    expressOasGenerator.init(app, {});
 
     let MembersRouter = express.Router();
     let Members = require("./assets/classes/members-class")(db, config);
